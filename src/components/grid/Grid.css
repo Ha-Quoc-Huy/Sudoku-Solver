@@ -1,0 +1,25 @@
+
+table {
+    border-collapse: collapse;
+    font-size: 2em;
+    margin: 0 auto;
+    border: solid 4px #6e4102;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+colgroup,
+tbody {
+    border: solid medium #6e4102;
+}
+
+td {
+    border: solid thin #6e4102;
+    height: 1.4em;
+    width: 1.4em;
+    text-align: center;
+    padding: 0;
+    background-color: #FCCD90;
+    /* background-color: #FF9F1C; */
+    color: black;
+}
