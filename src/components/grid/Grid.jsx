@@ -23,7 +23,7 @@ const Grid = ({ grid, onChange, canEdit }) => {
     tBodies.push(<tbody key={i}>{tBody}</tbody>);
   }
   return (
-    <table>
+    <table className="">
       <colgroup>
         <col></col>
         <col></col>

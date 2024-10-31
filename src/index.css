@@ -27,7 +27,27 @@ body {
   background-color: #472902;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 10px;
 }
 .button:hover {
   border-color: #646cff;
+}
+
+/* css for Dark mode */
+body.dark-mode {
+  background-color: rgba(5, 21, 40, 0.704);
+  color: white;
+}
+
+div.dark-mode {
+  background-color: #366ef1;
+}
+div.dark-mode:hover {
+  border-color: #ffffff;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

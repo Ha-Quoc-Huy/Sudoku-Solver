@@ -2,7 +2,7 @@ import "./SudokuSolver.css";
 
 import { getInitialGrid, gridSize, puzzles } from "../../algorithms/gridAlgo";
 import Grid from "../grid/Grid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { solve } from "../../algorithms/solve";
 
 const validNum = /[1-9]/;
@@ -120,17 +120,61 @@ const SudokuSolver = () => {
     else solveSudoku();
   };
 
+  // code for Dark mode
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const darkMode = localStorage.getItem("darkMode") === "true";
+    setIsDarkMode(darkMode);
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+      const table = document.querySelector("table");
+      if (table) {
+        table.classList.add("dark-mode");
+      }
+      const buttons = document.querySelectorAll(".button");
+      buttons.forEach((button) => {
+        button.classList.add("dark-mode");
+      });
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      document.body.classList.toggle("dark-mode", newMode);
+      const table = document.querySelector("table");
+      if (table) {
+        table.classList.toggle("dark-mode", newMode);
+      }
+      const buttons = document.querySelectorAll(".button");
+      buttons.forEach((button) => {
+        button.classList.toggle("dark-mode", newMode);
+      });
+
+      // Lưu trạng thái vào localStorage
+      localStorage.setItem("darkMode", newMode);
+
+      return newMode;
+    });
+  };
+
   return (
     <>
       <h1>
         <span style={{ color: "yellow" }}>Sudoku </span>
         <span style={{ color: "#AAFF00" }}>Solver</span>
       </h1>
-      <div className="button" onClick={handleClick}>
-        {isSolved ? "Reset" : isSolving ? "Solving..." : "Solve"}
+      <div className="header">
+        <div className="button " onClick={toggleDarkMode}>
+          {isDarkMode ? "Light mode" : "Dark mode"}
+        </div>
+        <div className="button " onClick={handleClick}>
+          {isSolved ? "Reset" : isSolving ? "Solving..." : "Solve"}
+        </div>
       </div>
       <Grid grid={grid} onChange={onChange} canEdit={canEdit} />
-      <div className="button puzzle" onClick={getPuzzle}>
+      <div className="button puzzle " onClick={getPuzzle}>
         {isPuzzle ? "Change Puzzle" : "Get Puzzle"}
       </div>
     </>

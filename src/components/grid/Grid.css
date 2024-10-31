@@ -1,25 +1,44 @@
-
+/* css for Light mode */
 table {
-    border-collapse: collapse;
-    font-size: 2em;
-    margin: 0 auto;
-    border: solid 4px #6e4102;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  border-collapse: collapse;
+  font-size: 2em;
+  margin: 0 auto;
+  border: solid 4px #6e4102;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 colgroup,
 tbody {
-    border: solid medium #6e4102;
+  border: solid medium #6e4102;
 }
 
 td {
-    border: solid thin #6e4102;
-    height: 1.4em;
-    width: 1.4em;
-    text-align: center;
-    padding: 0;
-    background-color: #FCCD90;
-    /* background-color: #FF9F1C; */
-    color: black;
+  border: solid thin #6e4102;
+  height: 1.4em;
+  width: 1.4em;
+  text-align: center;
+  padding: 0;
+  background-color: #fccd90;
+  /* background-color: #FF9F1C; */
+  color: black;
+}
+
+/* css for Dark mode */
+table.dark-mode {
+  border: solid 4px #daf4ff;
+}
+
+table.dark-mode colgroup,
+table.dark-mode tbody {
+  border: solid medium #daf4ff;
+}
+
+table.dark-mode td {
+  border: solid thin #daf4ff;
+  height: 1.4em;
+  width: 1.4em;
+  text-align: center;
+  padding: 0;
+  color: rgb(255, 255, 255);
 }
